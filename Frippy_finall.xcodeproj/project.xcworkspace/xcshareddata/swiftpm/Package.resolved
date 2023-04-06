@@ -1,0 +1,59 @@
+{
+  "pins" : [
+    {
+      "identity" : "activelabel.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/imodeveloperlab/ActiveLabel.swift",
+      "state" : {
+        "revision" : "ad145ba677be2f8e342033a1cadd8fee4059e017",
+        "version" : "1.1.7"
+      }
+    },
+    {
+      "identity" : "cartography",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/robb/Cartography",
+      "state" : {
+        "revision" : "b75197ea134f42b5feafb04b526b37eb1a41034b",
+        "version" : "4.0.0"
+      }
+    },
+    {
+      "identity" : "dskit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/imodeveloperlab/dskit",
+      "state" : {
+        "revision" : "bebcac533cbbc825c8ba0203dd3b3c4bb2ff375f",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "fakery",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vadymmarkov/Fakery",
+      "state" : {
+        "revision" : "71cb3bf36a808534659d1248780c2bf3c4c4fc91",
+        "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "horizoncalendar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/HorizonCalendar.git",
+      "state" : {
+        "revision" : "1e98736e42fe4e5bea39ce8b89838641f2261c32",
+        "version" : "1.13.3"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher",
+      "state" : {
+        "revision" : "0c02c46cfdc0656ce74fd0963a75e5000a0b7f23",
+        "version" : "7.1.2"
+      }
+    }
+  ],
+  "version" : 2
+}
