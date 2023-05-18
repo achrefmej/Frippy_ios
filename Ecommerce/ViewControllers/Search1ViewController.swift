@@ -43,15 +43,9 @@ extension Search1ViewController {
         
         let label = DSLabelVM(.headline, text: "Trending", alignment: .center)
         
-        let trending = ["Cell Phones & Accessories",
-                         "Clothing, Shoes & Jewelry",
-                         "Collectible Coins",
-                         "Digital Music",
-                         "Electronics",
-                         "Gift Cards",
-                         "Grocery & Gourmet Food",
-                         "Kindle Store",
-                         "Kitchen & Dinning"]
+        let trending = ["Accessories",
+                         "Clothing Shoes ",
+                      ]
         
         var models = trending.map { (trend) -> DSViewModel in
             
@@ -79,7 +73,7 @@ struct Search1ViewControllerPreview: PreviewProvider {
     static var previews: some View {
         Group {
             let nav = DSNavigationViewController(rootViewController: Search1ViewController())
-            PreviewContainer(VC: nav, BlackToneAppearance()).edgesIgnoringSafeArea(.all)
+            PreviewContainer(VC: nav, DarkLightAppearance()).edgesIgnoringSafeArea(.all)
         }
     }
 }

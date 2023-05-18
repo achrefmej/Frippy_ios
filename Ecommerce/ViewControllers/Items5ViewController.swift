@@ -2,7 +2,9 @@
 
 import DSKit
 import DSKitFakery
-
+import UIKit
+import SwiftUI
+import CoreImage
 open class Items5ViewController: DSViewController {
     
     var selectedFilter = "Jackets"
@@ -14,23 +16,25 @@ open class Items5ViewController: DSViewController {
         update()
         
         // Filter
-        let filter = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down.circle.fill"),
+      /*  let filter = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down.circle.fill"),
                                      style: .plain,
                                      target: self,
                                      action: #selector(openFilters))
+        */
+    
         
-        // Sort
-        let sort = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle.fill"),
-                                   style: .plain,
-                                   target: self,
-                                   action: #selector(openSort))
         
-        navigationItem.rightBarButtonItems = [filter, sort]
+        
+        
+        
+        
+        
+        
     }
     
     // Call every time some data have changed
     func update() {
-        show(content: headerSection(), filtersSection(), productsSection())
+        show(content: headerSection(),categoriesSection(), categoriesSection1(),qrCodeSection(),product())
     }
     
     @objc func openFilters() {
@@ -38,9 +42,20 @@ open class Items5ViewController: DSViewController {
     }
     
     @objc func openSort() {
-        self.dismiss()
+        
+                let boutiqueName = UserDefaults.standard.string(forKey: "selectedBoutiqueName")
+
+                if let window = UIApplication.shared.windows.first {
+                    window.rootViewController = UIHostingController(rootView: TabBarView())
+                    window.makeKeyAndVisible()
+                }
+        
     }
 }
+
+
+
+
 
 // MARK: - Header
 
@@ -48,11 +63,20 @@ extension Items5ViewController {
     
     // Header section
     func headerSection() -> DSSection {
-        
+       
+       
+       
+       
+        let boutiqueName = UserDefaults.standard.string(forKey: "selectedBoutiqueName")
+        //  print(boutiqueName)
+           let boutiqueAddress = UserDefaults.standard.string(forKey: "selectedBoutiqueAddress")
+    
         // Text
         let composer = DSTextComposer(alignment: .center)
-        composer.add(type: .headlineWithSize(30), text: "Mejri store")
-        composer.add(type: .headlineWithSize(12), text: "20 items")
+        composer.add(type: .headlineWithSize(30), text: boutiqueName! )
+        composer.add(type: .headlineWithSize(12), text: boutiqueAddress! )
+        
+     
         
         // Card with text
         var card = DSCardVM(composer: composer, textPosition: .center, backgroundImage: .imageURL(url: p0Image))
@@ -61,95 +85,148 @@ extension Items5ViewController {
         // Card gradient
         card.gradientTopColor = UIColor.white.withAlphaComponent(0.2)
         card.gradientBottomColor = UIColor.white.withAlphaComponent(0.3)
-        
+        card.didTap  { _ in
+            if let window = UIApplication.shared.windows.first {
+                window.rootViewController = UIHostingController(rootView: TabBarView())
+                window.makeKeyAndVisible()
+            }
+        }
         return card.list()
     }
+    
 }
 
 // MARK: - Products
 
 extension Items5ViewController {
     
-    /// Products
     /// - Returns: DSSection
-    func productsSection() -> DSSection {
+    func categoriesSection() -> DSSection {
+        let userID = UserDefaults.standard.string(forKey: "userId")
+        let client = UserDefaults.standard.string(forKey: "clientId")
+
+        var actions: [DSViewModel] = []
         
-        // 1
-        var product1 = product(title: "The Iconic Mesh Polo Shirt - All Fits",
-                               description: "Polo Ralph Lauren",
-                               image: p1Image)
-        product1.didTap { [unowned self] (_ : DSActionVM) in
-          self.present(vc: ItemDetails1ViewController(), presentationStyle: .fullScreen)
-      }
-      
-      
-        
-        // 2
-        var product2 = product(title: "Big Pony Mesh Polo Shirt",
-                               description: "Stella McCarthney",
-                               image: p2Image)
-        
-        
-        
-        product2.didTap { [unowned self] (_ : DSActionVM) in
-          self.present(vc: ItemDetails1ViewController(), presentationStyle: .fullScreen)
-      }
-        
-        // 3
-        var product3 = product(title: "Mesh Long-Sleeve Polo Shirt – All Fits",
-                               description: "Dolce & Gabbana",
-                               image: p3Image)
-        
-        product3.didTap { [unowned self] (_ : DSActionVM) in
-          self.present(vc: ItemDetails1ViewController(), presentationStyle: .fullScreen)
-      }
-        
-        
-        // 4
-        var product4 = product(title: "Soft Cotton Polo Shirt - All Fits",
-                               description: "Hermes",
-                               image: p4Image)
-        product4.didTap { [unowned self] (_ : DSActionVM) in
-          self.present(vc: ItemDetails1ViewController(), presentationStyle: .fullScreen)
-      }
-        // 5
-        var product5 = product(title: "Big Pony Mesh Polo Shirt",
-                               description: "Arrmani",
-                               image: p5Image)
-        product5.didTap { [unowned self] (_ : DSActionVM) in
-          self.present(vc: ItemDetails1ViewController(), presentationStyle: .fullScreen)
-      }
-        // 6
-        var product6 = product(title: "Polo Team Mesh Polo Shirt",
-                               description: "House & Versace",
-                               image: p6Image)
-        product6.didTap { [unowned self] (_ : DSActionVM) in
-          self.present(vc: ItemDetails1ViewController(), presentationStyle: .fullScreen)
-      }
-        // 7
-        var product7 = product(title: "Polo Team Mesh Polo Shirt",
-                               description: "House & Versace",
-                               image: p7Image)
-        product7.didTap { [unowned self] (_ : DSActionVM) in
-          self.present(vc: ItemDetails1ViewController(), presentationStyle: .fullScreen)
-      }
-        let section = [product1, product2, product4, product5, product6, product7, product3].grid()
-        
+        if userID == client {
+            var addProduitAction = action(title: "Add Produit", leftSymbol: "rectangle.stack.fill.badge.person.crop")
+            addProduitAction.didTap  { _ in
+                let boutiqueID = UserDefaults.standard.string(forKey: "selectedBoutiqueID")
+                let userID = UserDefaults.standard.string(forKey: "userId")
+                let client = UserDefaults.standard.string(forKey: "clientId")
+                if let window = UIApplication.shared.windows.first {
+                    window.rootViewController = UIHostingController(rootView: ajout_therapy())
+                    window.makeKeyAndVisible()
+                }
+            }
+            actions.append(addProduitAction)
+        }
+
+        let section = actions.list()
+        section.subheadlineHeader("Settings")
+
         return section
     }
+
+    func action(title: String, subtitle: String? = nil, leftSymbol: String? = nil) -> DSActionVM {
+        return DSActionVM(title: title, subtitle: subtitle, leftSFSymbol: leftSymbol)
+    }
+
+
+    
+    /// Products
+    /// - Returns: DSSection
+    func fetchShops(completion: @escaping (Result<[produit], Error>) -> Void) {
+        let idbrand = UserDefaults.standard.string(forKey: "idbrand")
+
+        guard let url = URL(string: "http://localhost:6000/produit/boutique/\(idbrand!)") else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            print(idbrand!)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "No data", code: 0, userInfo: nil)))
+                return
+            }
+            
+            do {
+                let shops = try JSONDecoder().decode([produit].self, from: data)
+                //print("the shop \(shops)")
+                completion(.success(shops))
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+
+    /// New arrivals
+    /// - Returns: DSSection
+    func product() -> DSSection {
+       
+        
+        var shops: [DSViewModel] = []
+        let group = DispatchGroup()
+        group.enter()
+        fetchShops { result in
+            switch result {
+            case .success(let produits):
+                shops = produits.map { produit in
+                    var shopVM = self.product(title: produit.produit ?? "nil", description: produit.description, image:produit.image ?? "nil",price: "\(produit.prix)DT" )
+                  
+                    shopVM.didTap { [unowned self] _ in
+                        UserDefaults.standard.set(produit.produit, forKey: "prodnom")
+                        UserDefaults.standard.set(produit.description,forKey: "descprod")
+                        UserDefaults.standard.set(produit.prix, forKey: "prixprod")
+                        UserDefaults.standard.set(produit.quantite, forKey:"qprod")
+                     
+                        UserDefaults.standard.set(produit.image, forKey:"imageprod")
+                        
+                        self.present(vc: ItemDetails1ViewController(), presentationStyle: .fullScreen)
+                    }
+                    print(produits)
+                    return shopVM
+                    
+                }
+            case .failure(let error):
+                print("Failed to fetch shops: \(error)")
+            }
+            group.leave()
+        }
+        
+        group.notify(queue: .main) { [self] in
+            let section = shops.grid()
+           
+            self.show(content: [ headerSection(),categoriesSection(), categoriesSection1(),qrCodeSection(),
+section ])
+        }
+        
+        let section = DSSection()
+        return section
+    }
+
     
 
-    func product(title: String, description: String, image: URL? = nil) -> DSViewModel {
+ 
+    
+
+    func product(title: String, description: String, image:String ,price:String ) -> DSViewModel {
         
         // Text
         let composer = DSTextComposer(alignment: .natural)
         composer.add(type: .headlineWithSize(14), text: title)
         composer.add(type: .subheadline, text: description)
-       composer.add(price: DSPrice.random())
+        composer.add(type: .headline, text : price)
         
         // Action
         var action = composer.actionViewModel()
-        action.topImage(url: image)
+        let urlImage = URL(string: image)
+        action.topImage(url: urlImage )
         action.height = .absolute(290)
 
         
@@ -216,71 +293,91 @@ extension Items5ViewController {
     
     /// Filter section
     /// - Returns: DSSection
-    func filtersSection() -> DSSection {
+    func categoriesSection1() -> DSSection {
         
-        let filters = ["Homme", "femme", "enfant", "bebe", "Montres", "produit beaute"]
-        
-        let viewModels = filters.map { (filter) -> DSViewModel in
-            filterModel(title: filter)
+        var map = action(title: " shop in map", leftSymbol: "map.fill")
+        map.didTap{ _ in
+            if let window = UIApplication.shared.windows.first {
+                window.rootViewController = UIHostingController(rootView: ContentView())
+                window.makeKeyAndVisible()
+            }
+            
         }
+        var qrcode = action(title: " shop QRcode", leftSymbol: "viewfinder.circle.fill")
+        qrcode.didTap{ _ in
+            let boutiqueName = UserDefaults.standard.string(forKey: "selectedBoutiqueName")
+
+            if let window = UIApplication.shared.windows.first {
+                window.rootViewController = UIHostingController(rootView: QrView())
+                window.makeKeyAndVisible()
+            }
+            
+        }
+      
+        let section = [map , qrcode ].list()
+        section.subheadlineHeader("show boutique")
         
-        let section = viewModels.gallery()
+        
         return section
     }
     
   
-    func filterModel(title: String) -> DSViewModel {
-        
-        // Is selected
-        let selected = title == self.selectedFilter
-        
-        // Text
-        let composer = DSTextComposer(alignment: .center)
-        composer.add(type: .headlineWithSize(14), text: title)
-        
-        // Action
-        var filter = composer.actionViewModel()
-        
-        filter.height = .absolute(35)
-        
-        // Selected style
-        if selected {
-            
-            // Create a copy of colors from secondaryView colors
-            var colors = DSAppearance.shared.main.secondaryView
-            
-            // Change the colors
-            colors.background = colors.button.background
-            colors.text.headline = colors.button.title
-            colors.text.subheadline = colors.button.title
-            
-            // Set custom colors to filter
-            filter.style.colorStyle = .custom(colors)
-        }
-        
-        filter.width = .absolute(100)
-        filter.style.displayStyle = .grouped(inSection: false)
-        
-        // Handle did tap
-        filter.didTap { [unowned self] (_: DSActionVM) in
-            self.selectedFilter = title
-            self.update()
-        }
-        
-        return filter
-    }
+  
 }
+
+
+//qrcode
+
+
+extension Items5ViewController {
+    
+    func generateQRCodeImage(from boutiqueID: String) -> UIImage? {
+        let data = boutiqueID.data(using: .utf8)
+        guard let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
+        filter.setValue(data, forKey: "inputMessage")
+        guard let outputImage = filter.outputImage else { return nil }
+        let context = CIContext()
+        guard let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return nil }
+        return UIImage(cgImage: cgImage)
+    }
+    
+    func qrCodeSection() -> DSSection {
+        guard let boutiqueID = UserDefaults.standard.string(forKey: "selectedBoutiqueID") else { return DSSection() }
+        guard let qrCodeImage = generateQRCodeImage(from: boutiqueID) else { return DSSection() }
+        
+        let imageView = UIImageView(image: qrCodeImage)
+        imageView.contentMode = .scaleAspectFit
+        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        let section = DSSection()
+        section.subheadlineHeader("Boutique QR Code")
+        
+        return section
+    }
+
+
+    
+  
+    
+}
+
+
+
+
+
+
+
 
 // MARK: - SwiftUI Preview
 
-import SwiftUI
+
 
 struct Items5ViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         Group {
             let nav = DSNavigationViewController(rootViewController: Items5ViewController())
-            PreviewContainer(VC: nav, BlackToneAppearance()).edgesIgnoringSafeArea(.all)
+            PreviewContainer(VC: nav, DarkLightAppearance()).edgesIgnoringSafeArea(.all)
         }
     }
 }

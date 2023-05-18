@@ -152,6 +152,11 @@ open class ViewController: DSViewController {
         walktroughtSection.subheadlineHeader("Walktrought")
         
 
+        
+        
+        
+        
+        
         let imageGallery1 = DSActionVM(title: "Image Gallery 1") { [unowned self] action in
             self.present(vc: ImageGallery1ViewController(), presentationStyle: .fullScreen)
         }
@@ -176,6 +181,7 @@ open class ViewController: DSViewController {
         
         let AddproduitSection = [Addproduit].list()
         AddproduitSection.subheadlineHeader("Feedback")
+
 
         
         show(content: walktroughtSection,

@@ -71,6 +71,19 @@ public class ShopAppearance: DSDesignable {
                                              separator: UIColor(0xD5C5B2),
                                              cornerRadius: 10)
         
+        
+        
+        
+        // Button
+      //  let button = DSDesignableButtonColor(background: DSColor.color(light: 0xFF9900, dark: 0xFF9900),
+      //                                       title: DSColor.color(light: 0xEBC893, dark: 0xEBC893))
+        
+        // Background
+       // let background = DSColor.color(light: 0xFFFFF, dark: 0x15202b)
+        
+        
+        
+        
         // MARK: - Secondary view
         
         let secondaryText = DSDesignableTextColor.textColors(main: UIColor(0x222222), secondary: UIColor(0x717171))

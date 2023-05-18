@@ -1,12 +1,16 @@
 
 
+
+
+
+
 import UIKit
 import DSKit
 import DSKitFakery
 
-class Feedback1ViewController: DSViewController {
+class TabBarViewControlller: DSViewController {
     
-    // Random data generator, an wrapper around https://github.com/vadymmarkov/Fakery
+
     let faker = DSFaker()
     
     var rating = 5
@@ -118,11 +122,11 @@ class Feedback1ViewController: DSViewController {
 
 import SwiftUI
 
-struct Feedback1ViewControllerPreview: PreviewProvider {
+struct TabBarViewControlllerPreview: PreviewProvider {
     
     static var previews: some View {
         Group {
-            let nav = DSNavigationViewController(rootViewController: Feedback1ViewController())
+            let nav = DSNavigationViewController(rootViewController: TabBarViewControlller())
             PreviewContainer(VC: nav, DarkLightAppearance()).edgesIgnoringSafeArea(.all)
         }
     }

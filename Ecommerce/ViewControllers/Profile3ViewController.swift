@@ -36,11 +36,11 @@ extension Profile3ViewController {
         
         // Password
         let currentPassword = DSTextFieldVM.password(placeholder: "Current Password")
-        currentPassword.errorPlaceHolderText = "Minimum 8 characters maximum 14"
+   
         
         // Password
         let password = DSTextFieldVM.newPassword(placeholder: "Password")
-        password.errorPlaceHolderText = "Minimum 8 characters maximum 14"
+       
         
         // Password
         let repeatPassword = DSTextFieldVM.newPassword(placeholder: "Repeat password")
@@ -48,12 +48,62 @@ extension Profile3ViewController {
         repeatPassword.handleValidation = { text in
             return text == password.text
         }
-        
+        let userID = UserDefaults.standard.string(forKey: "userId")
+
         // Update
         var updateButton = DSButtonVM(title: "Update")
         
         // Handle did tap on button
         updateButton.didTap = { [unowned self] model in
+            self.present(vc: Profile2ViewController(), presentationStyle: .fullScreen)
+            
+            let currentPassword = currentPassword.text
+            let password = password.text
+            let repeatPassword = password
+            
+            guard let userID = userID else {
+                print("Error: userID is nil")
+                return
+            }
+            
+            guard let url = URL(string: "http://localhost:6000/api/users/\(userID)") else {
+                print("Error: invalid URL")
+                return
+            }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let parameters = [
+                "oldPassword": currentPassword,
+                "newPassword": password,
+                "confirmPassword":repeatPassword
+              
+            ]
+            request.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
+                    print("Error:", error ?? "Unknown error")
+                    return
+                }
+                if response.statusCode == 200 {
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any], let user = json["user"] as? [String:Any] {
+                            // Update values in UserDefaults
+                              
+                        } else {
+                            print("Error: JSON response is missing or has the wrong format")
+                        }
+                    } catch {
+                        print("Error:", error)
+                    }
+                } else {
+                    print("Error: status code:", response.statusCode)
+                }
+            }
+            task.resume()
+            
             
             self.isCurrentFormValid { isValid in
                 if isValid {
@@ -64,6 +114,7 @@ extension Profile3ViewController {
                     }
                 }
             }
+            
         }
         
         return [description,
@@ -71,6 +122,7 @@ extension Profile3ViewController {
                 password,
                 repeatPassword,
                 updateButton].list()
+        
     }
 }
 
@@ -83,7 +135,7 @@ struct Profile3ViewControllerPreview: PreviewProvider {
     static var previews: some View {
         Group {
             let nav = DSNavigationViewController(rootViewController: Profile3ViewController())
-            PreviewContainer(VC: nav, BlackToneAppearance()).edgesIgnoringSafeArea(.all)
+            PreviewContainer(VC: nav, DarkLightAppearance()).edgesIgnoringSafeArea(.all)
         }
     }
 }

@@ -2,13 +2,21 @@
 
 import DSKit
 import DSKitFakery
+import UIKit
+
+
+
 
 open class Home1ViewController: DSViewController {
     
+    
+    
+    var sections: [DSSection] = []
     open override func viewDidLoad() {
         
         super.viewDidLoad()
         update()
+
         
         
         
@@ -39,7 +47,7 @@ extension Home1ViewController {
         composer.add(type: .subheadline, text: "Over 45 Boutiques available for you")
         
         var action = composer.actionViewModel()
-        action.rightRoundImage(url: URL(string: "https://img.icons8.com/color/512/instagram-reel.png"), size: CGSize(width: 40, height: 40))
+        action.rightRoundImage(url: URL(string: "https://img.icons8.com/?size=512&id=M9iaNrWtUROf&format=png"), size: CGSize(width: 40, height: 40))
         action.didTap { [unowned self] (_ : DSActionVM) in
             self.present(vc: Profile2ViewController(), presentationStyle: .fullScreen)
         }
@@ -75,10 +83,36 @@ extension Home1ViewController {
 
 extension Home1ViewController {
     
+    func fetchShops(completion: @escaping (Result<[boutique], Error>) -> Void) {
+        guard let url = URL(string: "http://localhost:6000/boutique/allboutique") else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(NSError(domain: "No data", code: 0, userInfo: nil)))
+                return
+            }
+            
+            do {
+                let shops = try JSONDecoder().decode([boutique].self, from: data)
+                //print("the shop \(shops)")
+                completion(.success(shops))
+            } catch {
+                completion(.failure(error))
+            }
+        }.resume()
+    }
+
     /// New arrivals
     /// - Returns: DSSection
     func newArrivals() -> DSSection {
-        
         let composer = DSTextComposer()
         composer.add(type: .headline, text: "New Boutiques")
         var header = composer.actionViewModel()
@@ -88,35 +122,44 @@ extension Home1ViewController {
             self.dismiss()
         }
         
-        var shop = newArrival(title: "naimi store", description: "ariena soghr best price ", image: "store")
-        shop.didTap { [unowned self] (_ : DSActionVM) in
-            self.present(vc: Items5ViewController(), presentationStyle: .fullScreen)
-        }
-        var shop1 = newArrival(title: "mejri store", description: "ariena soghr best price", image: "store2")
-        shop1.didTap { [unowned self] (_ : DSActionVM) in
-            self.present(vc: Items5ViewController(), presentationStyle: .fullScreen)
-        }
-        var shop2 = newArrival(title: "king Shoes ", description: "ariena soghr best price", image: "store4")
-        shop2.didTap { [unowned self] (_ : DSActionVM) in
-            self.present(vc: Items5ViewController(), presentationStyle: .fullScreen)
-        }
-        var shop3 = newArrival(title: "best Watches", description: "ariena soghr best price", image: "store5")
-        shop3.didTap { [unowned self] (_ : DSActionVM) in
-            self.present(vc: Items5ViewController(), presentationStyle: .fullScreen)
-        }
-        var shop4 = newArrival(title: "king for king", description: "ariena soghr best price", image: "store2")
-        shop4.didTap { [unowned self] (_ : DSActionVM) in
-            self.present(vc: Items5ViewController(), presentationStyle: .fullScreen)
-        }
-        var shop5 = newArrival(title: "best store", description: "ariena soghr best price", image: "store5")
-        shop5.didTap { [unowned self] (_ : DSActionVM) in
-            self.present(vc: Items5ViewController(), presentationStyle: .fullScreen)
+        var shops: [DSViewModel] = []
+        let group = DispatchGroup()
+        group.enter()
+        fetchShops { result in
+            switch result {
+            case .success(let boutiques):
+                shops = boutiques.map { boutique in
+                    var shopVM = self.newArrival(title: boutique.nom, description: boutique.adresse, image:boutique.image ?? "nil")
+                  
+                    shopVM.didTap { [unowned self] _ in
+                        UserDefaults.standard.set(boutique._id, forKey: "idbrand")
+                        UserDefaults.standard.set(boutique.client,forKey: "clientId")
+                        UserDefaults.standard.set(boutique.nom, forKey: "selectedBoutiqueName")
+                        UserDefaults.standard.set(boutique.adresse, forKey: "selectedBoutiqueAddress")
+                        
+                        self.present(vc: Items5ViewController(), presentationStyle: .fullScreen)
+                    }
+                    print(boutiques)
+                    return shopVM
+                    
+                }
+            case .failure(let error):
+                print("Failed to fetch shops: \(error)")
+            }
+            group.leave()
         }
         
-        let section = [shop, shop1, shop2, shop3, shop4, shop5].grid()
-        section.header = header
+        group.notify(queue: .main) { [self] in
+            let section = shops.grid()
+            section.header = header
+            self.show(content: [userProfileSection(),
+                                productsGallery(),section ])
+        }
+        
+        let section = DSSection()
         return section
     }
+
     
 
     func newArrival(title: String, description: String, image:String) -> DSViewModel {
@@ -126,7 +169,8 @@ extension Home1ViewController {
         composer.add(type: .subheadlineWithSize(12), text: description)
         
         var action = composer.actionViewModel()
-        action.topImage(image: UIImage(named: image),height: .unknown, contentMode: .scaleAspectFill)
+        let urlImage = URL(string: image)
+        action.topImage(url: urlImage,height: .unknown, contentMode: .scaleAspectFill)
         action.height = .absolute(180)
         action.style.displayStyle = .default
        
@@ -148,7 +192,7 @@ struct Home1ViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         Group {
-            PreviewContainer(VC: Home1ViewController(), BlackToneAppearance()).edgesIgnoringSafeArea(.all)
+            PreviewContainer(VC: Home1ViewController(), DarkLightAppearance()).edgesIgnoringSafeArea(.all)
         }
     }
 }

@@ -14,9 +14,31 @@
 		4210691F29D633E1009FD9C5 /* ImageGallery1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210691E29D633E1009FD9C5 /* ImageGallery1ViewController.swift */; };
 		4210692129D634B6009FD9C5 /* Order3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210692029D634B6009FD9C5 /* Order3ViewController.swift */; };
 		4210692329D63677009FD9C5 /* ProfileshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4210692229D63677009FD9C5 /* ProfileshopViewController.swift */; };
+		4213652F2A157D4A00815EAF /* AddProd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4213652E2A157D4A00815EAF /* AddProd.swift */; };
+		421365312A157EC500815EAF /* CaptioneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421365302A157EC500815EAF /* CaptioneTextField.swift */; };
+		421365332A15ABE400815EAF /* AddShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421365322A15ABE400815EAF /* AddShop.swift */; };
+		421365352A15C44E00815EAF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421365342A15C44E00815EAF /* MapView.swift */; };
+		421365372A15C6AD00815EAF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421365362A15C6AD00815EAF /* LocationManager.swift */; };
+		421365392A15C78800815EAF /* LocationSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421365382A15C78800815EAF /* LocationSearchModel.swift */; };
+		4218D3BA29FA311600BCBDF8 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4218D3B929FA311600BCBDF8 /* Products.swift */; };
 		42207F9929D6397E000A3D85 /* AddshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42207F9829D6397E000A3D85 /* AddshopViewController.swift */; };
+		422B60202A0703E200234FB5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B601F2A0703E200234FB5 /* TabBarView.swift */; };
+		422B60222A070E6700234FB5 /* TabBarViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B60212A070E6700234FB5 /* TabBarViewControlller.swift */; };
+		42380E4729EA35E40099DF57 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42380E4629EA35E40099DF57 /* SettingsView.swift */; };
+		424C935629ECEA7B005DA3FE /* AddLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C935429ECEA7B005DA3FE /* AddLocation.swift */; };
+		424C935729ECEA7B005DA3FE /* MapImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424C935529ECEA7B005DA3FE /* MapImplementation.swift */; };
+		426D9B5E29E83E180085737C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D9B5D29E83E180085737C /* TabBarController.swift */; };
+		4272E1D42A01232A008E76A2 /* Boutiques.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4272E1D32A01232A008E76A2 /* Boutiques.swift */; };
+		4278096C2A0837D500F9AF51 /* QrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4278096B2A0837D500F9AF51 /* QrView.swift */; };
 		4279CF9429D78C4B00BC411F /* AddproduitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4279CF9329D78C4B00BC411F /* AddproduitViewController.swift */; };
+		42B853B32A0984450016D991 /* panier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B853B22A0984450016D991 /* panier.swift */; };
 		42E28A6329D6545400776B7B /* ShopproViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E28A6229D6545400776B7B /* ShopproViewController.swift */; };
+		42EA9B4F2A09A46B0084BD1C /* FaceIdPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA9B4E2A09A46B0084BD1C /* FaceIdPage.swift */; };
+		42EA9B512A09B54A0084BD1C /* QRScannerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA9B502A09B54A0084BD1C /* QRScannerPage.swift */; };
+		42EA9B532A09B5770084BD1C /* CameraPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA9B522A09B5770084BD1C /* CameraPage.swift */; };
+		42EA9B552A09B5980084BD1C /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA9B542A09B5980084BD1C /* Permission.swift */; };
+		42EA9B572A09C4470084BD1C /* QRScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA9B562A09C4470084BD1C /* QRScannerDelegate.swift */; };
+		42EA9B5A2A09D5200084BD1C /* Locolizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42EA9B5C2A09D5200084BD1C /* Locolizable.strings */; };
 		60CE873D27B55BB40084493C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE873C27B55BB40084493C /* AppDelegate.swift */; };
 		60CE873F27B55BB40084493C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE873E27B55BB40084493C /* SceneDelegate.swift */; };
 		60CE874127B55BB40084493C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE874027B55BB40084493C /* ViewController.swift */; };
@@ -68,9 +90,31 @@
 		4210691E29D633E1009FD9C5 /* ImageGallery1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageGallery1ViewController.swift; path = "../../../../untitled folder/fedi+achref-fippy/Frippy/Ecommerce/ViewControllers/ImageGallery1ViewController.swift"; sourceTree = "<group>"; };
 		4210692029D634B6009FD9C5 /* Order3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order3ViewController.swift; path = "../../../../untitled folder/fedi+achref-fippy/Frippy/Ecommerce/ViewControllers/Order3ViewController.swift"; sourceTree = "<group>"; };
 		4210692229D63677009FD9C5 /* ProfileshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileshopViewController.swift; path = "../../../../untitled folder/fedi+achref-fippy/Frippy/Ecommerce/ViewControllers/ProfileshopViewController.swift"; sourceTree = "<group>"; };
+		4213652E2A157D4A00815EAF /* AddProd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProd.swift; sourceTree = "<group>"; };
+		421365302A157EC500815EAF /* CaptioneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptioneTextField.swift; sourceTree = "<group>"; };
+		421365322A15ABE400815EAF /* AddShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShop.swift; sourceTree = "<group>"; };
+		421365342A15C44E00815EAF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		421365362A15C6AD00815EAF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		421365382A15C78800815EAF /* LocationSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchModel.swift; sourceTree = "<group>"; };
+		4218D3B929FA311600BCBDF8 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		42207F9829D6397E000A3D85 /* AddshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddshopViewController.swift; path = "../../../../untitled folder/fedi+achref-fippy/Frippy/Ecommerce/ViewControllers/AddshopViewController.swift"; sourceTree = "<group>"; };
+		422B601F2A0703E200234FB5 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		422B60212A070E6700234FB5 /* TabBarViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControlller.swift; sourceTree = "<group>"; };
+		42380E4629EA35E40099DF57 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = "../../../../untitled folder 2/TC-ECommerceTemplate-master/EcommerceTemplate/SettingsView.swift"; sourceTree = "<group>"; };
+		424C935429ECEA7B005DA3FE /* AddLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddLocation.swift; path = "../../../../untitled folder/AlleyOop/AddLocation.swift"; sourceTree = "<group>"; };
+		424C935529ECEA7B005DA3FE /* MapImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapImplementation.swift; path = "../../../../untitled folder/AlleyOop/MapImplementation.swift"; sourceTree = "<group>"; };
+		426D9B5D29E83E180085737C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4272E1D32A01232A008E76A2 /* Boutiques.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boutiques.swift; sourceTree = "<group>"; };
+		4278096B2A0837D500F9AF51 /* QrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrView.swift; sourceTree = "<group>"; };
 		4279CF9329D78C4B00BC411F /* AddproduitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddproduitViewController.swift; path = "../../../../untitled folder/fedi+achref-fippy/Frippy/Ecommerce/ViewControllers/AddproduitViewController.swift"; sourceTree = "<group>"; };
+		42B853B22A0984450016D991 /* panier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = panier.swift; sourceTree = "<group>"; };
 		42E28A6229D6545400776B7B /* ShopproViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShopproViewController.swift; path = "../../../../untitled folder/fedi+achref-fippy/Frippy/Ecommerce/ViewControllers/ShopproViewController.swift"; sourceTree = "<group>"; };
+		42EA9B4E2A09A46B0084BD1C /* FaceIdPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdPage.swift; sourceTree = "<group>"; };
+		42EA9B502A09B54A0084BD1C /* QRScannerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerPage.swift; sourceTree = "<group>"; };
+		42EA9B522A09B5770084BD1C /* CameraPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPage.swift; sourceTree = "<group>"; };
+		42EA9B542A09B5980084BD1C /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		42EA9B562A09C4470084BD1C /* QRScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerDelegate.swift; sourceTree = "<group>"; };
+		42EA9B5B2A09D5200084BD1C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Locolizable.strings; sourceTree = "<group>"; };
 		60CE873927B55BB40084493C /* Frippy_finall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frippy_finall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CE873C27B55BB40084493C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60CE873E27B55BB40084493C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,15 +184,48 @@
 			children = (
 				60D4E11427C4D51B006DC65A /* BlackToneAppearance.swift */,
 				60D4E11627C4D673006DC65A /* ShopAppearance.swift */,
+				60CE873C27B55BB40084493C /* AppDelegate.swift */,
 				418B493D27F6150F000B4206 /* DarkLightAppearance.swift */,
 				418B493827F61483000B4206 /* CustomFonts */,
 			);
 			path = Appearances;
 			sourceTree = "<group>";
 		};
+		4218D3B829FA30F200BCBDF8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4218D3B929FA311600BCBDF8 /* Products.swift */,
+				4272E1D32A01232A008E76A2 /* Boutiques.swift */,
+				42B853B22A0984450016D991 /* panier.swift */,
+				42EA9B542A09B5980084BD1C /* Permission.swift */,
+				42EA9B562A09C4470084BD1C /* QRScannerDelegate.swift */,
+				421365382A15C78800815EAF /* LocationSearchModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4272E1CC2A0114BB008E76A2 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				422B601F2A0703E200234FB5 /* TabBarView.swift */,
+				422B60212A070E6700234FB5 /* TabBarViewControlller.swift */,
+				4278096B2A0837D500F9AF51 /* QrView.swift */,
+				42EA9B4E2A09A46B0084BD1C /* FaceIdPage.swift */,
+				42EA9B502A09B54A0084BD1C /* QRScannerPage.swift */,
+				42EA9B522A09B5770084BD1C /* CameraPage.swift */,
+				4213652E2A157D4A00815EAF /* AddProd.swift */,
+				421365302A157EC500815EAF /* CaptioneTextField.swift */,
+				421365322A15ABE400815EAF /* AddShop.swift */,
+				421365342A15C44E00815EAF /* MapView.swift */,
+				421365362A15C6AD00815EAF /* LocationManager.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
 		60CE873027B55BB40084493C = {
 			isa = PBXGroup;
 			children = (
+				4218D3B829FA30F200BCBDF8 /* Models */,
 				60CE873B27B55BB40084493C /* Ecommerce */,
 				60E3A38327C51B83007A4597 /* EcommerceTests */,
 				60CE873A27B55BB40084493C /* Products */,
@@ -168,7 +245,6 @@
 		60CE873B27B55BB40084493C /* Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
-				60CE873C27B55BB40084493C /* AppDelegate.swift */,
 				60CE873E27B55BB40084493C /* SceneDelegate.swift */,
 				60CE874027B55BB40084493C /* ViewController.swift */,
 				418B494127F615DD000B4206 /* Appearances */,
@@ -188,6 +264,10 @@
 		60CE875027B55C110084493C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4272E1CC2A0114BB008E76A2 /* TabView */,
+				424C935429ECEA7B005DA3FE /* AddLocation.swift */,
+				424C935529ECEA7B005DA3FE /* MapImplementation.swift */,
+				42380E4629EA35E40099DF57 /* SettingsView.swift */,
 				4279CF9329D78C4B00BC411F /* AddproduitViewController.swift */,
 				42E28A6229D6545400776B7B /* ShopproViewController.swift */,
 				42207F9829D6397E000A3D85 /* AddshopViewController.swift */,
@@ -207,6 +287,8 @@
 				60CE878727B55C1F0084493C /* Search1ViewController.swift */,
 				60CE876F27B55C1E0084493C /* SignUp2ViewController.swift */,
 				60CE877C27B55C1F0084493C /* Walktrought1ViewController.swift */,
+				426D9B5D29E83E180085737C /* TabBarController.swift */,
+				42EA9B5C2A09D5200084BD1C /* Locolizable.strings */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -318,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60CE874927B55BB90084493C /* LaunchScreen.storyboard in Resources */,
+				42EA9B5A2A09D5200084BD1C /* Locolizable.strings in Resources */,
 				418B493B27F61498000B4206 /* Noteworthy.plist in Resources */,
 				60CE87D727B55D450084493C /* Cards.xcassets in Resources */,
 				60CE87D527B55D450084493C /* PayMethods.xcassets in Resources */,
@@ -342,31 +425,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421365372A15C6AD00815EAF /* LocationManager.swift in Sources */,
+				42EA9B512A09B54A0084BD1C /* QRScannerPage.swift in Sources */,
+				422B60202A0703E200234FB5 /* TabBarView.swift in Sources */,
 				60CE87AC27B55C200084493C /* SignUp2ViewController.swift in Sources */,
+				42EA9B532A09B5770084BD1C /* CameraPage.swift in Sources */,
+				42EA9B572A09C4470084BD1C /* QRScannerDelegate.swift in Sources */,
 				60CE874127B55BB40084493C /* ViewController.swift in Sources */,
 				60CE87B127B55C200084493C /* Home1ViewController.swift in Sources */,
 				60CE879627B55C1F0084493C /* Items5ViewController.swift in Sources */,
+				42EA9B552A09B5980084BD1C /* Permission.swift in Sources */,
+				421365352A15C44E00815EAF /* MapView.swift in Sources */,
 				60CE873D27B55BB40084493C /* AppDelegate.swift in Sources */,
 				418B493E27F6150F000B4206 /* DarkLightAppearance.swift in Sources */,
 				60CE87C727B55C200084493C /* Profile2ViewController.swift in Sources */,
+				422B60222A070E6700234FB5 /* TabBarViewControlller.swift in Sources */,
 				60CE87C127B55C200084493C /* Categories3ViewController.swift in Sources */,
 				60CE87D927B55DA50084493C /* UIImage+Helpers.swift in Sources */,
+				42EA9B4F2A09A46B0084BD1C /* FaceIdPage.swift in Sources */,
+				424C935629ECEA7B005DA3FE /* AddLocation.swift in Sources */,
+				4278096C2A0837D500F9AF51 /* QrView.swift in Sources */,
 				60CE87C427B55C200084493C /* Search1ViewController.swift in Sources */,
+				4218D3BA29FA311600BCBDF8 /* Products.swift in Sources */,
 				42E28A6329D6545400776B7B /* ShopproViewController.swift in Sources */,
 				42207F9929D6397E000A3D85 /* AddshopViewController.swift in Sources */,
 				4279CF9429D78C4B00BC411F /* AddproduitViewController.swift in Sources */,
+				421365332A15ABE400815EAF /* AddShop.swift in Sources */,
 				4210691F29D633E1009FD9C5 /* ImageGallery1ViewController.swift in Sources */,
+				42380E4729EA35E40099DF57 /* SettingsView.swift in Sources */,
 				60CE87B927B55C200084493C /* Walktrought1ViewController.swift in Sources */,
+				42B853B32A0984450016D991 /* panier.swift in Sources */,
 				418B494027F6159A000B4206 /* ShopCustomFontAppearance.swift in Sources */,
 				60CE879727B55C200084493C /* ItemsCart4ViewController.swift in Sources */,
 				60CE87A527B55C200084493C /* ItemDetails1ViewController.swift in Sources */,
 				4210692329D63677009FD9C5 /* ProfileshopViewController.swift in Sources */,
+				424C935729ECEA7B005DA3FE /* MapImplementation.swift in Sources */,
 				60CE87A827B55C200084493C /* Feedback1ViewController.swift in Sources */,
+				421365392A15C78800815EAF /* LocationSearchModel.swift in Sources */,
+				4272E1D42A01232A008E76A2 /* Boutiques.swift in Sources */,
 				60D4E11527C4D51B006DC65A /* BlackToneAppearance.swift in Sources */,
 				60D4E11727C4D673006DC65A /* ShopAppearance.swift in Sources */,
 				4210692129D634B6009FD9C5 /* Order3ViewController.swift in Sources */,
 				60CE879F27B55C200084493C /* LogInViewController.swift in Sources */,
+				421365312A157EC500815EAF /* CaptioneTextField.swift in Sources */,
+				4213652F2A157D4A00815EAF /* AddProd.swift in Sources */,
 				60CE873F27B55BB40084493C /* SceneDelegate.swift in Sources */,
+				426D9B5E29E83E180085737C /* TabBarController.swift in Sources */,
 				60CE87B827B55C200084493C /* AboutUs2ViewController.swift in Sources */,
 				60CE87B527B55C200084493C /* Profile3ViewController.swift in Sources */,
 			);
@@ -391,6 +495,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		42EA9B5C2A09D5200084BD1C /* Locolizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42EA9B5B2A09D5200084BD1C /* en */,
+			);
+			name = Locolizable.strings;
+			sourceTree = "<group>";
+		};
 		60CE874227B55BB40084493C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -535,12 +647,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ecommerce/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "mohamed ali klay";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,12 +677,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Ecommerce/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "mohamed ali klay";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

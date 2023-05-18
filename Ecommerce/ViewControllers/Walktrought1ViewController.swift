@@ -100,14 +100,27 @@ fileprivate class WalktroughtData {
                 .simple(getDifferencePage())]
     }
     
+    
+  
+    
+    
+    
+    
     func getDiscoverPage() -> WalkthroughSimplePage {
         
         let title = "Discover clothes, accessories, and more."
         let subtitle = "Get all brands in one place.\nFill the bag full of joy."
         
         return WalkthroughSimplePage(text: (title: title, description: subtitle, alignment: .center),
-                                     image: (content: .imageURL(url: image1), style: .circle, height: 300))
+                                     image: (content: .imageURL(url: image1), style: .circle, height: 200))
     }
+    
+    
+    
+    
+    
+    
+    
     
     func getFindPage() -> WalkthroughSimplePage {
         
@@ -115,7 +128,7 @@ fileprivate class WalktroughtData {
         let subtitle = "Get all brands in one place.\nFill the bag full of joy."
         
         return WalkthroughSimplePage(text: (title: title, description: subtitle, alignment: .left),
-                                     image: (content: .imageURL(url: image2), style: .themeCornerRadius, height: 350))
+                                     image: (content: .imageURL(url: image2), style: .themeCornerRadius, height: 200))
         
         
     }
@@ -126,7 +139,7 @@ fileprivate class WalktroughtData {
         let subtitle = "Get all brands at one place, Fill the bag with full of joy."
         
         return WalkthroughSimplePage(text: (title: title, description: subtitle, alignment: .left),
-                                     image: (content: .imageURL(url: image3), style: .themeCornerRadius, height: 350))
+                                     image: (content: .imageURL(url: image3), style: .themeCornerRadius, height: 200))
     }
 }
 
@@ -145,7 +158,7 @@ struct Walktrought1ViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         Group {
-            PreviewContainer(VC: Walktrought1ViewController(), BlackToneAppearance()).edgesIgnoringSafeArea(.all)
+            PreviewContainer(VC: Walktrought1ViewController(), DarkLightAppearance()).edgesIgnoringSafeArea(.all)
         }
     }
 }

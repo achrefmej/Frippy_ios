@@ -30,13 +30,13 @@ extension Categories3ViewController {
     func categoriesSection() -> DSSection {
         
         let shoes = category(title: "Start your own busniness",
-                             description: "bla bla bla adaaaaaaaaaaaaaaaaaaaaabla bla bla adaaaaaaaaaa",
+                             description: "FROM ZERO TO HERO ",
                              image:  URL(string: "https://appinventiv.com/wp-content/uploads/sites/1/2022/09/mobile-app-for-ecommerce-startup.webp"))
        
         
         
         let shirts = categori(title: "Home",
-                              description: "bla bla bla adaaaaaaaaaaaaaaaaaaaaabla bla bla adaaaaaa",
+                              description: "TAKE WITH US YOUR PRODUCT ",
                               image:  URL(string: "https://appinventiv.com/wp-content/uploads/sites/1/2022/09/mobile-app-for-ecommerce-startup.webp"))
         
 
@@ -68,6 +68,7 @@ extension Categories3ViewController {
     }
     
     
+    
     func categori(title: String, description: String, image: URL? = nil) -> DSViewModel {
         
         let composer = DSTextComposer(alignment: .center)
@@ -78,8 +79,11 @@ extension Categories3ViewController {
         card.height = .absolute(200)
         card.gradientTopColor = UIColor.black.withAlphaComponent(0.2)
         card.gradientBottomColor = UIColor.black.withAlphaComponent(0.5)
-        card.didTap { [unowned self] (_:DSCardVM) in
-            self.present(vc: Home1ViewController(), presentationStyle: .fullScreen)
+        card.didTap  { _ in
+            if let window = UIApplication.shared.windows.first {
+                window.rootViewController = UIHostingController(rootView: TabBarView())
+                window.makeKeyAndVisible()
+            }
         }
         
         return card
@@ -96,7 +100,7 @@ struct Categories3ViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         Group {
-            PreviewContainer(VC: Categories3ViewController(), BlackToneAppearance()).edgesIgnoringSafeArea(.all)
+            PreviewContainer(VC: Categories3ViewController(), DarkLightAppearance()).edgesIgnoringSafeArea(.all)
         }
     }
 }

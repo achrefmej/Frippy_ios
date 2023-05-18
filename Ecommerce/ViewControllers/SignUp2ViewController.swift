@@ -26,7 +26,7 @@ open class SignUp2ViewController: DSViewController {
         var image = DSImageVM(imageUrl:  URL(string: "https://appinventiv.com/wp-content/uploads/sites/1/2022/09/mobile-app-for-ecommerce-startup.webp"), height: .absolute(100), displayStyle: .circle)
         
         // Change picture button
-        var button = DSButtonVM(sfSymbol: "camera.fill") { [unowned self] _ in
+      /*  var button = DSButtonVM(sfSymbol: "camera.fill") { [unowned self] _ in
             self.dismiss()
         }
         button.width = .absolute(40)
@@ -38,7 +38,7 @@ open class SignUp2ViewController: DSViewController {
                                                            background: .lightBlur,
                                                            insets: .insets(.zero),
                                                            offset: .custom(.init(x: -35, y: -35)),
-                                                           cornerRadius: .custom(20))]
+                                                           cornerRadius: .custom(20))]*/
         let space2 = DSSpaceVM(type: .custom(30))
         
         // Section
@@ -99,7 +99,7 @@ extension SignUp2ViewController {
             let email = email.text
             let password = password.text
             
-            guard let url = URL(string: "http://http://localhost:6000/api/signup") else {
+            guard let url = URL(string: "http://localhost:6000/api/signup") else {
                 return
             }
             
@@ -108,7 +108,8 @@ extension SignUp2ViewController {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             
             let body = [
-                "fullName": fullName,
+                "firstName": fullName,
+                "lastName" : fullName,
                 "email": email,
                 "password": password
             ]
@@ -138,7 +139,7 @@ extension SignUp2ViewController {
         
         
         
-        let section = [fullName, email, password, repeatPassword,  continueButton].list()
+        let section = [fullName, email, password, repeatPassword,continueButton].list()
         section.doubleMarginLeftRightInsets()
         
         return section
@@ -174,7 +175,7 @@ struct SignUp2ViewControllerPreview: PreviewProvider {
     
     static var previews: some View {
         Group {
-            PreviewContainer(VC: SignUp2ViewController(), BlackToneAppearance()).edgesIgnoringSafeArea(.all)
+            PreviewContainer(VC: SignUp2ViewController(), DarkLightAppearance()).edgesIgnoringSafeArea(.all)
         }
     }
 }

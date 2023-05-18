@@ -87,8 +87,9 @@ public class DarkLightAppearance: DSDesignable {
                                              title: DSColor.color(light: 0xEBC893, dark: 0xEBC893))
         
         // Background
-        let background = DSColor.color(light: 0xAAE7AA, dark: 0x15202b)
-        
+        //let background = DSColor.color(light: 0xFFFFF, dark: 0x15202b)
+        let background = DSColor.color(light: 0xFFFFF, dark: 0x000000)
+
         // Separator
         let separator = DSColor.color(light: 0xCFF4CF, dark: 0x38444d)
         
